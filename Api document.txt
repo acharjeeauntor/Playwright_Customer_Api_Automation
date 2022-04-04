@@ -1,0 +1,112 @@
+
+Request Name: Login
+Method: POST
+https://customer-test-api.herokuapp.com/customer/api/v1/login
+body:{
+"username":"salman",
+"password":"salman1234"
+}
+Store the token on ENV variable
+
+===============
+
+Request Name: Customer List
+Method: GET
+header:{
+Authorization:token
+}
+https://customer-test-api.herokuapp.com/customer/api/v1/list
+Test Case: Verfity First Customer id is 101 and status code is 200
+
+====================
+
+Request Name: Get Customer Info
+Method: GET
+header:{
+Authorization:token 
+}
+https://customer-test-api.herokuapp.com/customer/api/v1/get/{{first_customer}}
+Test Case: Verfity Customer name of customer id 103 is Mr. Rahim
+
+========================
+
+Request Name: Add New Customer
+Method: POST
+header:{
+Authorization:token 
+}
+https://customer-test-api.herokuapp.com/customer/api/v1/create
+body:{
+"id":127,
+"name":"auntor",
+"email":"acharjeeontu2gmail.com",
+"address":"Tangail",
+"phone_number":"01725852363"
+}
+Test Case: Verfity response message is Success and status code is 201
+
+=================
+
+Request Name: Existing Customer
+Method: POST
+header:{
+Authorization:token 
+}
+https://customer-test-api.herokuapp.com/customer/api/v1/create
+body:{
+            "id": 101,
+            "name": "Mr. Kamal",
+            "email": "mrkamal@test.com",
+            "address": "Gulshan,Dhaka",
+            "phone_number": "01502020110"
+        }
+Test Case: Verfity response status code is 208
+
+
+=============================
+
+Request Name: Update a Customer
+Method: PUT
+header:{
+Authorization:token 
+}
+https://customer-test-api.herokuapp.com/customer/api/v1/update/{{id}}
+body:{
+"id":{{id}},
+"name":"auntor",
+"email":"acharjeeontu2gmail.com",
+"address":"Tangail",
+"phone_number":"01725852363"
+}
+Test Case: Verfity response message is Success and status code is 200
+
+========================
+
+Request Name: Delete a Customer
+Method: DELETE
+header:{
+Authorization:token 
+}
+https://customer-test-api.herokuapp.com/customer/api/v1/delete/{{id}}
+Test Case: Verfity response message is Success and status code is 201
+
+====================
+
+Request Name: Delete a Existing Customer
+Method: DELETE
+header:{
+Authorization:token 
+}
+https://customer-test-api.herokuapp.com/customer/api/v1/delete/{{id}}
+Test Case: Verfity response status code is 404
+
+
+
+
+
+
+
+
+
+
+
